@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react";
-import "../App.css";
+import "./Transactions.css";
 
-const API = "http://localhost:8000";
+const API = import.meta.env.VITE_API_URL;
+
 const headers = {
-  "X-Api-Key": "key_test_abc123",
-  "X-Api-Secret": "secret_test_xyz789",
+  "X-Api-Key": import.meta.env.VITE_API_KEY,
+  "X-Api-Secret": import.meta.env.VITE_API_SECRET,
 };
 
 export default function Transactions() {
@@ -17,11 +18,11 @@ export default function Transactions() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="transactions-page">
       <h2>Transactions</h2>
 
       <div className="table-container">
-        <table>
+        <table data-testid="transactions-table">
           <thead>
             <tr>
               <th>Payment ID</th>
@@ -34,15 +35,24 @@ export default function Transactions() {
           </thead>
           <tbody>
             {payments.map(p => (
-              <tr key={p.id}>
-                <td>{p.id}</td>
-                <td>{p.order_id}</td>
-                <td>₹{p.amount / 100}</td>
-                <td>{p.method}</td>
-                <td className={p.status === "success" ? "status-success" : "status-failed"}>
+              <tr key={p.id} data-testid="transaction-row">
+                <td data-testid="payment-id">{p.id}</td>
+                <td data-testid="order-id">{p.order_id}</td>
+                <td data-testid="amount">₹{p.amount / 100}</td>
+                <td data-testid="method">{p.method}</td>
+                <td
+                  data-testid="status"
+                  className={
+                    p.status === "success"
+                      ? "status-success"
+                      : "status-failed"
+                  }
+                >
                   {p.status}
                 </td>
-                <td>{new Date(p.created_at).toLocaleString()}</td>
+                <td data-testid="created-at">
+                  {new Date(p.created_at).toLocaleString()}
+                </td>
               </tr>
             ))}
           </tbody>

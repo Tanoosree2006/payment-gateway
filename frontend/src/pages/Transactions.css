@@ -1,0 +1,39 @@
+.table-container {
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  overflow-x: auto;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: linear-gradient(to right, #e3f2fd, #ffffff);
+}
+
+th, td {
+  padding: 16px 20px;
+  border-bottom: 1px solid #eef2f7;
+  text-align: left;
+}
+
+th {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+tr:hover {
+  background: #f9fafb;
+}
+
+.status-success {
+  color: #16a34a;
+  font-weight: 600;
+}
+
+.status-failed {
+  color: #dc2626;
+  font-weight: 600;
+}

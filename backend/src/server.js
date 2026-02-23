@@ -3,7 +3,7 @@ import cors from "cors";
 import dotenv from "dotenv";
 import fs from "fs";
 import { pool } from "./config/db.js";
-import { seedMerchant } from "./db/seed.js";
+import { seedMerchant, seedData } from "./db/seed.js";
 
 import healthRoutes from "./routes/healthRoutes.js";
 import orderRoutes from "./routes/orderRoutes.js";

@@ -1,51 +1,24 @@
-import { BrowserRouter, Routes, Route, Navigate, Link } from "react-router-dom";
-import Login from "./pages/Login.jsx";
-import Dashboard from "./pages/Dashboard.jsx";
-import Transactions from "./pages/Transactions.jsx";
-import "./App.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Login from "./pages/Login";
+import Layout from "./pages/Layout";
+import Dashboard from "./pages/Dashboard";
+import Transactions from "./pages/Transactions";
 
-function Layout({ children }) {
-  return (
-    <>
-      <nav className="navbar">
-        <div className="nav-left">Payment Gateway</div>
-        <div className="nav-right">
-          <Link to="/dashboard">Dashboard</Link>
-          <Link to="/transactions">Transactions</Link>
-          <Link to="/">Logout</Link>
-        </div>
-      </nav>
-      {children}
-    </>
-  );
-}
-
-export default function App() {
+function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* Public Route */}
         <Route path="/" element={<Login />} />
 
-        <Route
-          path="/dashboard"
-          element={
-            <Layout>
-              <Dashboard />
-            </Layout>
-          }
-        />
-
-        <Route
-          path="/transactions"
-          element={
-            <Layout>
-              <Transactions />
-            </Layout>
-          }
-        />
-
-        <Route path="*" element={<Navigate to="/" />} />
+        {/* Protected Area with Layout */}
+        <Route path="/" element={<Layout />}>
+          <Route path="dashboard" element={<Dashboard />} />
+          <Route path="transactions" element={<Transactions />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   );
 }
+
+export default App;

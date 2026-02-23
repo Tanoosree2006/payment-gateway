@@ -1,0 +1,52 @@
+/* Page background */
+.dashboard-page {
+  background: #f4f6f9;
+  min-height: 100vh;
+}
+
+
+/* Grid for cards */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+/* Card design */
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.card h4 {
+  color: #777;
+  margin-bottom: 10px;
+}
+
+.card h2 {
+  margin: 0;
+}
+
+/* API box */
+.api-card {
+  margin-top: 30px;
+  background: #0f172a;
+  color: white;
+}
+
+/* Navbar */
+.navbar {
+  background: white;
+  padding: 15px 30px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.dashboard-container {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 20px;
+}
